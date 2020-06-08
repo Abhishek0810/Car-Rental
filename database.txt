@@ -1,0 +1,55 @@
+create database carRental;
+
+use database carRental;
+
+create table signup(id int(5) not null auto_increment,fullname varchar(50),email varchar(50),password varchar(20),rePassword varchar(20),primary key(id));
+
+create table sedan(carId int(5) NOT NULL AUTO_INCREMENT,carName varchar(20),price int(9),figure varchar(100), PRIMARY KEY (`carId`));
+
+ create table sportsCars(carId int(5) NOT NULL AUTO_INCREMENT,carName varchar(20),price int(9),figure varchar(100), PRIMARY KEY (`carId`));
+
+create table suvs(carId int(5) NOT NULL AUTO_INCREMENT,carName varchar(20),price int(9),figure varchar(100), PRIMARY KEY (`carId`));
+
+
+select * from contact;
+
+
+
+create table contact(name varchar(100),email varchar(100),subject varchar(100),message varchar(6500));
+
+select * from booking;
+
+select * from orders;
+create table admin(username varchar(20),password varchar(20));
+
+insert into admin(username,password) values('admin','admin');
+
+create table booking(fullName varchar(100),address varchar(200),pickupPoint varchar(100),dropPlace varchar(100),startDateAndTime varchar(50),endDateAndTime varchar(50),carName varchar(200),price int(10));
+
+delete from suvs where carId=2;
+
+insert into suvs(carName,price,figure) values('Ford Explorer',34000,'explorer.png');
+
+insert into suvs(carName,price,figure) values('Chervolet Suburban',20000,'suburban.png');
+
+insert into suvs(carName,price,figure) values('Ford VCM',40000,'fordtruck.png');
+
+insert into suvs(carName,price,figure) values('Mercedes GL-Class 450',50000,'mercsuv.png');
+insert into suvs(carName,price,figure) values('Mercedes G-Wagon',40900,'gwagon.png');
+delete from suvs where carId=1;
+insert into suvs(carName,price,figure) values('Mercedes G-Wagon',40900,'gwagon.jpg');
+delete from sportscars where carId=6;
+delete from sportscars where carId=7;
+delete from sportscars where carId=8;
+delete from sportscars where figure='maserati.jpg' and figure='spider.jpg' and figure='spider.png';
+insert into sportscars(carName,price,figure) values('Mercedes Spider',30000,'spider.jpg');
+insert into sportscars(carName,price,figure) values('Maserati',29900,'maserati.jpg');
+insert into sportscars(carName,price,figure) values('Maserati',29900,'maserati.jpg');
+insert into sportscars(carName,price,figure) values('Maserati',29900,'maserati.jpg');
+
+
+
+
+
+
+

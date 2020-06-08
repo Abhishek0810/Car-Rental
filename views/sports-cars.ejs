@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sedans</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link rel="stylesheet" href="vendor/owl carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/owl carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="vendor/icofont/icofont.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <header class="car-select-header fixed-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-md sticky-top">
+                        <a class="navbar-brand" href="/">CAR RENTAL</a>
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapse_target" aria-controls="navbarSupportedContent1" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="icon-bar top-bar mt-0"></span>
+                            <span class="icon-bar middle-bar"></span>
+                            <span class="icon-bar bottom-bar"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="collapse_target">
+
+                            <!-- Links start -->
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#cars">Cars</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#contact">Contact</a>
+                                </li>
+                            </ul>
+                            <!-- Links end -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Customisation start -->
+    <section class="customisation">
+        <div class="container-fluid">
+            <div class="row">
+                <!------ Car list area title start ------>
+                <div class="col-md-12">
+                    <h2 class="mt-4 title-color ">
+                        Choose a Sports Car
+                    </h2>
+                    <p class="title-color">Of your choice and Rent it</p>
+                </div>
+                
+                    <!-- Car selection content start -->
+                    <div class="container-fluid">
+                        <div class="inner-sec-shop px-lg-4 px-3">
+                            <div class="row">
+                                <!-- /womens -->
+            
+                               <%  if(data.length) {
+                                for(i=0;i<data.length;i++){ %>
+            
+                                <div class="col-md-3 product-men women_two">
+                                    <div class="product-googles-info googles">
+                                        <div class="men-pro-item">
+                                            <div class="men-thumb-item">
+                                                <img src="/img/<%= data[i].figure %>" class="img-fluid" alt="">
+                                            </div>
+                                            <div class="item-info-product">
+                                                <div class="info-product-price">
+                                                    <div class="grid_meta">
+                                                        <div class="product_price">
+                                                            <h4>
+                                                                <a href="/booking-sports-cars/<%= data[i].carId %>"><%= data[i].carName %></a>
+                                                            </h4>
+                                                            <div class="grid-price mt-2">
+                                                                <span class="money ">Rs.<%= data[i].price %>/day</span>
+                                                            </div>
+                                                        </div>
+            
+                                                    </div>
+                                                    <!-- <div class="googles single-item hvr-outline-out">
+                                                        <form action="#" method="post">
+                                                            <input type="hidden" name="cmd" value="_cart">
+                                                            <input type="hidden" name="add" value="1">
+                                                            <input type="hidden" name="googles_item" value="<%= data[i].name %>">
+                                                            <input type="hidden" name="amount" value="<%= data[i].price %>">
+                                                            <button type="submit" class="googles-cart pgoogles-cart">
+                                                                <i class="fas fa-cart-plus"></i>
+                                                            </button>
+            
+            
+                                                        </form>
+            
+                                                    </div> -->
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <% }} %>
+            
+            
+                            </div>
+                    <!-- Car selection content end -->
+                </div>
+                <!------ Car list area end ------>
+                <hr class="choice-line">
+                <!-- choice result start -->
+                <div class="choice-result hidden w-100">
+                    <div class="checkout-form">
+                        <!-- Modal -->
+                        <div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <!--Modal Content-->
+                                <div class="modal-content form-elegant">
+                                    <!--Modal Header 1 start-->
+                                    <div class="modal-header">
+                                        <h3 class="modal-title w-100 my-3" id="myModalLabel">Driver's Info</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <!--Modal Header 1 end-->
+                                    <!--Modal Body-->
+                                    <div class="modal-body mx-4">
+                                        <!--Modal Body-->
+                                        <div class="md-form mb-3">
+                                            <input type="email" id="Form-email1" class="form-control validate"
+                                                placeholder="First Name*">
+                                        </div>
+                                        <div class="md-form mb-3">
+                                            <input type="email" id="Form-email1" class="form-control validate"
+                                                placeholder="Last Name*">
+                                        </div>
+                                        <div class="md-form mb-3">
+                                            <input type="email" id="Form-email1" class="form-control validate"
+                                                placeholder="Email*">
+                                        </div>
+                                        <div class="md-form mb-3">
+                                            <input type="email" id="Form-email1" class="form-control validate"
+                                                placeholder="Phone">
+                                        </div>
+
+                                        <p
+                                            class="attention title-color font-small blue-text d-flex justify-content-end">
+                                            Your driver's license
+                                            may be subject the verification from the state of issuance.</p>
+                                    </div>
+                                    <!--Modal Body end-->
+                                    <!--Modal header 2-->
+                                    <div class="modal-header">
+                                        <h3 class="modal-title w-100 my-3" id="myModalLabel">Credit Card & Billing
+                                            Information</h3>
+                                    </div>
+                                    <!--Modal header 2 end-->
+
+                                    <!--Credit Card & Billing Body-->
+                                    <div class="modal-body mx-4">
+                                        <!-- Credit card form tabs -->
+                                        <ul role="tablist" class="nav bg-light nav-pills rounded-pill nav-fill mb-3">
+                                            <li class="nav-item">
+                                                <a data-toggle="pill" href="#nav-tab-card"
+                                                    class="nav-link active rounded-pill">
+                                                    <i class="fa fa-credit-card"></i>
+                                                    Credit Card
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a data-toggle="pill" href="#nav-tab-paypal"
+                                                    class="nav-link rounded-pill">
+                                                    <i class="fa fa-paypal"></i>
+                                                    Paypal
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a data-toggle="pill" href="#nav-tab-bank"
+                                                    class="nav-link rounded-pill">
+                                                    <i class="fa fa-university"></i>
+                                                    Bank Transfer
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <!-- Credit card form tabs end -->
+                                        <!-- Credit card form content -->
+                                        <div class="tab-content">
+
+                                            <!-- credit card info-->
+                                            <div id="nav-tab-card" class="tab-pane fade show active">
+                                                <form role="form">
+                                                    <div class="md-form mb-3">
+                                                        <label for="username">Full name (on the card)</label>
+                                                        <input type="text" name="username" placeholder="Abhay Shamra"
+                                                            required class="form-control">
+                                                    </div>
+                                                    <div class="md-form mb-3">
+                                                        <label for="cardNumber">Card number</label>
+                                                        <div class="input-group">
+                                                            <input type="text" name="cardNumber"
+                                                                placeholder="xxxx xxxx xxxx xxxx" class="form-control"
+                                                                required>
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text text-muted">
+                                                                    <i class="fa fa-cc-visa mx-1"></i>
+                                                                    <i class="fa fa-cc-amex mx-1"></i>
+                                                                    <i class="fa fa-cc-mastercard mx-1"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-8">
+                                                            <div class="md-form">
+                                                                <label><span class="hidden-xs">Expiration</span></label>
+                                                                <div class="input-group">
+                                                                    <input type="number" placeholder="MM" name=""
+                                                                        class="form-control" required>
+                                                                    <input type="number" placeholder="YY" name=""
+                                                                        class="form-control" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="md-form mb-4">
+                                                                <label data-toggle="tooltip"
+                                                                    title="Three-digits code on the back of your card">CVV
+                                                                    <i class="fa fa-question-circle"></i>
+                                                                </label>
+                                                                <input type="text" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button"
+                                                        class="blue-gradient waves-effect subscribe btn btn-primary btn-block rounded-pill">
+                                                        Confirm </button>
+                                                </form>
+                                            </div>
+                                            <!-- End -->
+
+                                            <!-- Paypal info 
+                                            <div id="nav-tab-paypal" class="tab-pane fade">
+                                                <p>Paypal is easiest way to pay online</p>
+                                                <p>
+                                                    <button type="button" class="btn btn-primary rounded-pill"><i
+                                                            class="fa fa-paypal mr-2"></i> Log into my Paypal</button>
+                                                </p>
+                                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur
+                                                    adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                                                    dolore magna aliqua.
+                                                </p>
+                                            </div>
+                                            <!-- End -->
+
+                                            <!-- bank transfer info -->
+                                            <div id="nav-tab-bank" class="tab-pane fade">
+                                                <h6>Bank account details</h6>
+                                                <dl>
+                                                    <dt>Bank</dt>
+                                                    <dd>SBI</dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>Account number</dt>
+                                                    <dd>7775877975</dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>Bank IFSC code</dt>
+                                                    <dd>123FASBI23</dd>
+                                                </dl>
+                                                <p class="text-muted">
+                                                </p>
+                                            </div>
+                                            <!-- End -->
+                                        </div>
+                                        <!-- End -->
+
+                                    </div>
+                                    <!--Credit Card & Billing Body end-->
+                                    <!--Modal Footer-->
+                                    <div class="modal-footer mx-5 pt-3 mb-1">
+                                        <p class="font-small grey-text d-flex justify-content-end">Not a member? <a
+                                                href="#" class="blue-text ml-1">
+                                                Sign Up</a></p>
+                                    </div>
+                                </div>
+                                <!--Modal Content End-->
+                            </div>
+                        </div>
+                        <!-- Modal end -->
+                    </div>
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <h5 class="mt-4 title-color">Please make a selection</h5>
+                            <h2 class="choice brand mb-4 title-color"></h2>
+                            <a class="pt-button" href="#" data-toggle="modal"
+                                data-target="#elegantModalForm">Reserve</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- choice result end -->
+            </div>
+        </div>
+    </section>
+    <!-- Customisation end -->
+
+    <div class="scroll-top">
+        <i class="icofont-rounded-up"></i>
+    </div>
+
+    <!-- footer start-->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="copyright text-center">
+                        Copyright <a href="#">CAR RENTAL</a> All Rights Reserved!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end-->
+
+
+
+
+    <!-- jquery uncompressed -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="vendor/owl carousel/js/owl.carousel.min.js"></script>
+    <script src="js/main.js" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
+</body>
+
+</html>

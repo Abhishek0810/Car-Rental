@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <style>
+         #card
+        {
+            margin-top:90px;
+            margin-left:50px
+            
+        }
+        .body
+       {
+        background-image: url(./public/img/cad.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+        }
+        .para
+        {
+            text-align: center;
+            color:blue
+        }
+    </style>
+
+    </head>
+    <body class="body">
+        <div class="col-md-6" id="card">
+            <div class="card " style="width: 25rem;">
+                <div class="card-body">
+        <form method="POST" action="/booking-final">
+          <input type="hidden" value="<%= data[0].carId %>" name="id">
+          <input type="hidden" value="<%= data[0].carName %>" name="carName">
+          <input type="hidden" value="<%= data[0].price %>" name="price">
+            <div class="container">
+            <div class="form-group">
+                <h2 class="para">Booking for <%= data[0].carName %></h2><br>
+                <label>Full name</label>
+                <input type="text" class="form-control" placeholder="Enter your name" name="name">
+              <label for="exampleInputEmail1">Address</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="address">
+              <small id="emailHelp" class="form-text text-muted">Please provide your here</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Pickup Point</label>
+              <input type="text" class="form-control" id="pick" placeholder="pick up place" name="pickup">
+              <br><Label>Drop Place</Label>
+              <input type="text" class="form-control" id="drop" placeholder="Drop place" name="drop">
+            </div>
+            <div class="form-group row">
+                <label for="example-datetime-local-input" class=" col-md-6 col-form-label">Start Date and time</label>
+                <div class="col-10">
+                  <input class="form-control" type="datetime-local" value="2020-01-01T00:45:00" id="example-datetime-local-input" name="startDate">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-datetime-local-input" class=" col-md-6 col-form-label">End Date and time</label>
+                <div class="col-10">
+                  <input class="form-control" type="datetime-local" value="2020-01-01T00:45:00" id="example-datetime-local-input" name="endDate">
+                </div>
+              </div>
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          </div>
+               
+</body>
+</html>

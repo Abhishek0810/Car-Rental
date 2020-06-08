@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bookstore</title>
+    <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="../css/login_overlay.css" rel='stylesheet' type='text/css' />
+<link href="../css/style6.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="../css/shop.css" type="text/css" />
+<link rel="stylesheet" href="../css/owl.carousel.css" type="text/css" media="all">
+<link rel="stylesheet" href="../css/owl.theme.css" type="text/css" media="all">
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/fontawesome-all.css" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+    rel="stylesheet">
+    <script src="../js/jquery-2.2.3.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <style>
+      .nav-pills{
+        background-color: #f7f7f7;
+      }
+      .user-panel {
+    /* position: relative; */
+    /* width: 100%; */
+    padding:0 20px;
+    overflow: hidden;
+}
+.user-panel > .image > img {
+    width: 100%;
+    max-width: 45px;
+    height: 45px;
+}
+.user-panel > .info {
+    padding: 5px 5px 5px 15px;
+    line-height: 1;
+    /* position: absolute; */
+    left: 55px;
+}
+.user-panel > .info > p {
+    font-weight: 600;
+    margin-top: 5px;
+    color: #fff;
+}
+.aa{background:yellow;}
+div#v-pills-search form input {
+    width: calc(100% - 10px);
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid #DDD;
+}
+div#v-pills-search form li.aa:nth-child[even] {
+width: calc(100% - 10px);
+    padding: 10px 20px;
+    font-family: arial;
+    font-size: 14px;
+    margin: 5px 0px;
+    background-color: #DDD;
+}
+div#v-pills-search form li.aa:nth-child[odd] {
+width: calc(100% - 10px);
+    padding: 10px 20px;
+    font-family: arial;
+    font-size: 14px;
+    margin: 5px 0px;
+    background-color: #F5F5F5;
+}
+div#v-pills-search form li.aa {
+width: calc(100% - 10px);
+    padding: 10px 20px;
+    font-family: arial;
+    font-size: 14px;
+    margin: 5px 0px;
+    background-color: #F5F5F5;
+}
+div#v-pills-search form li.aa:nth-child[first-word] {
+width: calc(100% - 10px);
+    padding: 10px 20px;
+    font-family: arial;
+    font-size: 14px;
+    margin: 5px 0px;
+    background-color: #F5F5F5;
+}
+    </style>
+  </head>
+  <body>
+         <li class="nav-item">
+                <a class="btn btn-outline-light my-2 my-sm-0" href="/logout">Logout</a>
+            <h1>Current booking details</h1>
+          <table class="table">
+            <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">Name</th>
+                          <th scope="col">Address</th>
+                          <th scope="col">Pickup Point</th>
+                          <th scope="col">Drop Point</th>
+                          <th scope="col">Start Date and Time</th>
+                          <th scope="col">End Date and Time</th>
+                          <th scope="col">CarName</th>
+                          <th scope="col">Price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <% if(data.length) { 
+                            for(var i=0;i<data.length;i++){ %> 
+                        <tr>
+                          <td><%= data[i].fullName %></th>
+                          <td><%= data[i].address %></td>
+                          <td><%= data[i].pickupPoint %></td>
+                          <td><%= data[i].dropPlace %></td>
+                          <td><%= data[i].startDateAndTime %></td>
+                          <td><%= data[i].endDateAndTime %></td>
+                          <td><%= data[i].carName %></td>
+                          <td><%= data[i].price %></td>
+                        </tr>
+                       <% } } else{ }  %>
+                      </tbody>
+                    </table><br><br><br>
+                    <h1>Message from users</h1>
+                    <table class="table">
+                        <thead class="thead-dark">
+                                    <tr>
+                                      <th scope="col">Name</th>
+                                      <th scope="col">email</th>
+                                      <th scope="col">Subject</th>
+                                      <th scope="col">message</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                      <% if(contact.length) { 
+                                        for(var i=0;i<contact.length;i++){ %> 
+                                    <tr>
+                                      <td><%= contact[i].name %></th>
+                                      <td><%= contact[i].email %></td>
+                                      <td><%= contact[i].subject %></td>
+                                      <td><%= contact[i].message %></td>
+                                    </tr>
+                                   <% } } else{ }  %>
+                                  </tbody>
+                                </table>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(e){
+        $('input[name="search"]').keyup(function(e){
+            var key = $(this).val();
+  $(".results").append("<li></li>");
+            $.ajax({
+                method:"post",
+                url:"http://localhost:3000/search",
+                data:{
+                  keyword:key
+                },
+                cache: true,
+                headers:{
+                contentType: "json",
+              },dataType:"text",
+              success:function(response,responseText){
+                $(".results").empty();
+
+                // var q = jQuery.parseJSON(response.responseText);
+                var res = JSON.parse(response);
+                // console.log(res[0].college
+                if(res.length > 0){
+                for(var i = 0;i<res.length;i++){
+			
+				console.log(url);	
+				
+				var url = res[i].id;
+				url = "/product/"+url;	
+				$(".results").append("<li class=aa><a href='"+url+"'>"+res[i].name+"<span class='float-right'><b>"+res[i].price+
+				  "</b></span></a></li>");
+                }
+              }else{
+                  $(".results").append("<li>No Results Found</li>");
+              }
+              },error:function(response,responseText){
+
+              }
+            });
+          });
+
+    });
+</script>
+              </div>    
+
+
+
+
+
+
+
+
+
+
+
+			  
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </body>
+</html>
